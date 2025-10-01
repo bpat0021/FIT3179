@@ -9,7 +9,7 @@
   "layer": [
     {
       "data": {
-        "url": "ballarat_small.json",
+        "url": "./ballarat_small.json",
         "format": {"type": "topojson", "feature": "suburb-10-vic"}
       },
       "mark": {
@@ -21,7 +21,7 @@
     
     },
     {
-        "data":{"url": "bike-racks.csv"},
+        "data":{"url": "./bike-racks.csv"},
         "mark": {"type":"point", "size": 100, "color":"red"},
         "encoding": {
             "longitude":{"field":"Lon", "type": "quantitative"}, 
