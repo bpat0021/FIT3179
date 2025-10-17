@@ -26,12 +26,13 @@
   // Embed your VegaLite spec from map.json
   vegaEmbed('#vis', './map.json', {actions: true}).then(function(result) {
       console.log("Visualization loaded successfully.");
-  vegaEmbed('#vis2','./Cycling_Participation_Barchart.json', { "actions": false }).then(function (result) {
-  }).catch(console.error);
+  vegaEmbed('#vis2','./Cycling_Participation_Barchart.json', {actions: true}).then(function(result) {
+      console.log("Visualization loaded successfully.");
 </script>
 
 </body>
 </html>
+
 
 
 
