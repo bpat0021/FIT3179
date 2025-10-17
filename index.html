@@ -2,11 +2,16 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Ballarat Map</title>
+  <title>Cycling Data Visualisation</title>
   <!-- Load Vega, Vega-Lite, Vega-Embed -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <style>
     body { margin: 0; font-family: Arial, sans-serif; }
     #vis { width: 100%; height: 100vh; }
@@ -21,8 +26,10 @@
   // Embed your VegaLite spec from map.json
   vegaEmbed('#vis', './map.json', {actions: true}).then(function(result) {
       console.log("Visualization loaded successfully.");
+    vegaEmbed('#vis2','./Cycling_Participation_Barchart.json', { "actions": false }).then(function (result) {
   }).catch(console.error);
 </script>
 
 </body>
 </html>
+
