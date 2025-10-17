@@ -1,45 +1,91 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <title>Cycling Data Visualisation</title>
-  <!-- Load Vega, Vega-Lite, Vega-Embed -->
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  
+  <title>Cycling Visulisation | Bhavesh Patil - 33111677</title>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
   <!-- Import pure.css -->
   <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
     integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
-  
-  <style>
-    body { margin: 0; font-family: Arial, sans-serif; }
-    #vis { width: 100%; height: 100vh; }
-  </style>
-  
+
+
 </head>
-<body>
-    
-<h2 style="text-align:center;">Cycling Data Visualisation - Bhavesh Patil 33111677</h2>
-<div id="vis"></div>
 
-<script type="text/javascript">
-  // Embed your VegaLite spec from map.json
-  vegaEmbed('#vis', './map.json', {actions: true}).then(function(result) {
-      console.log("Visualization loaded successfully.");
-</script>
+<body style="padding: 40px;">
 
+  <div class="page">
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1" style="text-align: center;">
+        <h1>Cycling Data Visulisation</h1>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g" style="margin-bottom: 60px;">
+      <div class="pure-u-1-2">
+        <div id="vis1" class="vis-container"></div>
+      </div>
+       <div class="pure-u-1-2">
+        <div class="description description-left">
+          <h2>Bar Chart</h2>
+          <p>This barchart shows what percentage of the population regularly cycles. Use the drop down filter to select the what year's dataset you would like to look at. This visulalisation was submitted as a part of the W10 HW Task. </p>
+        </div>
+      </div>
+  </div>
+
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div class="description description-left">
+          <h2>Map Visulisation</h2>
+          <p>This is the map showing the locations of all the bike racks in the City of Ballarat. This visulalisation was submited as a part of the W9 HW task.</p>
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+        <div id="vis2" class="vis-container"></div>
+      </div>
+
+    </div>
+    <!-- end pure grid group -->
+
+    <div class="pure-g" >
+      <div class="pure-u-1-1 small-font">
+        <p>This page was created by Bhavesh Patil-3311677. The data sources can be found in the <a href='https://github.com/bpat0021/FIT3179'>project repository</a></p>
+      </div>
+    </div>
+
+
+  </div> <!-- end page -->
+
+  <script type="text/javascript">
+    var specVis1 = "./Week 9 HW/map.json";
+    var specVis2 = "./Week 10 HW/Cycling_Participation_Barchart.json";
+
+    vegaEmbed('#vis1', specVis2, { "actions": false });
+
+    vegaEmbed('#vis2', specVis1, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+  </script>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
