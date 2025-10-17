@@ -1,7 +1,7 @@
 {
 "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-"width": 650,
-"height": 650,
+"width": 500,
+"height": 500,
 "title": { "text": ["Cycling Participation in Australia",""] },
 "data": {
     "url": "./Data/Cycling Participation data.csv"
@@ -67,6 +67,7 @@
     }
 ]
 }
+
 
 
 
