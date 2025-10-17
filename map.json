@@ -21,7 +21,7 @@
     
     },
     {
-        "data":{"url": "./bike-racks.csv"},
+        "data":{"url": "./Data/bike-racks.csv"},
         "mark": {"type":"point", "size": 100, "color":"red"},
         "encoding": {
             "longitude":{"field":"Lon", "type": "quantitative"}, 
@@ -29,4 +29,5 @@
         }
     }
     ]
+
 }
