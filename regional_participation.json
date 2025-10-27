@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Lollipop chart comparing Regional Vic and Melbourne over years",
   "data": {
-    "url": "./Data/(region)Cycling Participation Data.csv"
+    "url": "./Data/(region)Cycling Participation data.csv"
   },
   "height":350,
   "width":250,
@@ -53,4 +53,5 @@
       }      
     }
   ]
+
 }
