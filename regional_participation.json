@@ -1,0 +1,56 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Lollipop chart comparing Regional Vic and Melbourne over years",
+  "data": {
+    "url": "./Data/(region)Cycling Participation Data.csv"
+  },
+  "height":350,
+  "width":250,
+  "title": { "text": ["Regional vs Capital participation",
+    "(2011-2021)"], "fontSize":18, "fontWeight": 100 },
+  
+  "transform": [
+    {"fold": ["Regional Vic","Melb"], "as": ["Region","Participation"]}
+  ],
+
+  "layer": [
+    {
+      "mark": {"type": "rule", "strokeWidth": 3},
+      "encoding": {
+        "y": {"field": "Year", "type": "ordinal"},
+        "x": {
+          "field": "Participation",
+          "type": "quantitative",
+          "aggregate": "min",
+          "condition": {"param": "Year", "empty": false},
+          "scale":{"domain":[30,50]}
+        },
+        "x2": {
+          "field": "Participation",
+          "type": "quantitative",
+          "aggregate": "max"
+        },
+        "color": {"value": "gray"}
+      }
+    },
+    {
+      "mark": {"type": "circle", "size": 150},
+      "encoding": {
+        "y": {"field": "Year", "type": "ordinal"},
+        "x": {"field": "Participation", "type": "quantitative", "axis":{"title":"Participation Rate (%)"}, "scale":{"domain":[30,50]} },
+        "color": {"field": "Region", "type": "nominal",
+                "legend":{
+                    "orient": "top-left",
+                    "title": "Region",
+                    "titleFontSize": 14,
+                    "labelFontSize": 14
+                }},
+        "tooltip": [
+          {"field":"Year","type":"ordinal"},
+          {"field":"Region","type":"nominal"},
+          {"field":"Participation","type":"quantitative"}
+        ]        
+      }      
+    }
+  ]
+}

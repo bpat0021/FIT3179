@@ -1,0 +1,24 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Slope graph comparing Regional Vic and Melbourne over years",
+  "data": {
+    "url": "./Data/(region)Cycling Participation Data.csv"
+  },
+  "transform": [
+    {"fold": ["Regional Vic", "Melb"], "as": ["Region", "Participation"]}
+  ],
+  "mark": "line",
+  "encoding": {
+    "x": {"field": "Region", "type": "nominal"},
+    "y": {"field": "Participation", "type": "quantitative"},
+    "color": {"field": "Year", "type": "ordinal"},
+    "detail": {"field": "Year"},
+    "tooltip": [
+      {"field": "Region","type":"nominal"},
+      {"field":"Participation","type":"quantitative"},
+      {"field":"Year","type":"ordinal"}
+    ]
+  },
+  "width": 400,
+  "height": 300
+}

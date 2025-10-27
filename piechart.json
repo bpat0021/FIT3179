@@ -1,0 +1,19 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width":350,
+  "height":350,
+  "background":"gainsboro",
+  "title":{ "text": ["User Percentages (2013)"], "fontSize":18, "fontWeight": 100 },
+  "data": {
+    "values": [
+      {"category": "Pedal Bikes", "value": 6.5},
+      {"category": "E-scooters", "value": 3.6}
+    ]
+  },
+    "mark":{"type": "arc","radius":150, "tooltip":true},
+    "encoding": {
+        "theta": {"field": "value", "type": "quantitative", "stack":"normalize"},
+        "color": {"field": "category", "type": "nominal","scale":{"range":["#007816","#595252"]}, "legend":{"orient": "bottom", "labelFontSize":14,"titleFontSize":14, "title":"Useres of:"}}
+    }
+}
+

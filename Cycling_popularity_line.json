@@ -1,0 +1,43 @@
+{
+"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+"width": 275,
+"height": 300,
+"title": { "text": ["National Cycling Participation",
+    "by Gender (2011-2023)"], "fontSize":18, "fontWeight": 100 },
+"data": {
+    "url": "./Data/(Gender)Cycling Participation data.csv"
+},
+  "transform": [
+    {
+      "fold": ["Male", "Female", "Combined"],
+      "as": ["Category", "Percentage"]
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "line"},
+      "encoding": {
+        "x": {"field": "Year", "type": "temporal", "title": "Year"},
+        "y": {"field": "Percentage", "type": "quantitative", "title": "% of Population","scale":{"domain":[0,60]}},
+        "color": {
+          "field": "Category",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Male", "Female", "Combined"],
+            "range": ["royalblue", "red", "black"]
+          },
+          "title": "Gender",
+          "legend":{"orient": "bottom", "symbolSize":500, "labelFontSize":14, "titleFontSize":14}
+        },
+        "strokeDash": {
+            "field": "Category",
+            "type": "nominal",
+            "scale": {
+            "domain": ["Male", "Female", "Combined"],
+            "range": [[], [], [10,4]]
+        }
+      }
+    }
+    }
+  ]
+}

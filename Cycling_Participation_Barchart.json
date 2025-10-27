@@ -1,0 +1,71 @@
+{
+"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+"width": 330,
+"height": 400,
+"autosize": {"type": "fit", "contains": "padding"},
+"title": { "text": [
+    "Cycling Participation",
+    " in Australia by State"
+], "fontSize":18, "fontWeight":100, "anchor": "middle" },
+
+"data": {
+    "url": "./Data/Cycling Participation data.csv"
+},
+"params": [
+    {
+        "name": "Year_selection",
+        "value": 2023,
+        "bind": {
+            "input": "select",
+            "options": [2011,2013,2015,2017,2019,2021,2023],
+            "labels": ["2011","2013","2015","2017","2019","2021","2023"],
+            "name": "Year: "
+        }
+    }
+],
+"transform": [
+  {
+    "filter": "Year_selection == 0 || datum.Year == Year_selection"
+  }
+],
+
+"layer": [
+    {
+    "mark": {"type": "bar","color":"forestgreen"},
+    "transform": [
+        {"filter":"datum.State != 'Aus'"}
+    ],
+    "encoding": {
+        "x": { "field": "State", "type": "nominal"},
+        "y": { "field": "% of Population", "type": "quantitative","scale":{"domain":[0,60]}},
+
+    "tooltip": [
+    {"field": "Year", "type": "nominal"},
+    {"field": "State", "type": "nominal"},
+    {"field": "% of Population", "type": "quantitative"}
+    ]
+    }
+    },
+
+    {
+        "transform": [{"filter": "datum.State == 'Aus'"}],
+        "mark": {
+            "type": "rule",
+            "strokeDash": [10,4],
+            "color":"black",
+            "strokeWidth": 2
+        },
+        "encoding": {"y":{"field": "% of Population","type": "quantitative"}}
+    },
+    {   "transform": [{"filter": "datum.State == 'Aus'"}],
+        "mark":{"type": "text","angle":-15,"dy":-25,"color":"black","font":"Arial","fontSize":14,"fontWeight":100},
+        "encoding": {
+            "y":{"field": "% of Population", "type": "quantitative"}, "x":{"value":200},
+            "text":{"value":"National Average"}
+        }
+    }
+]
+
+
+}
+

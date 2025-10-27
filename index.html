@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Cycling Visualisation | Bhavesh Patil - 33111677</title>
+
+  <!-- Vega & Vega-Lite -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <!-- Pure.css -->
+  <link rel="stylesheet"
+        href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ"
+        crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding-top: 20px;
+      background-color: white;
+
+      /* Side images */
+      background-image: url('bikelane.jpg'), url('bikelane.jpg');
+      background-position: left top, right top;
+      background-repeat: repeat-y, repeat-y;
+      background-size: 100px auto, 100px auto;
+    }
+
+    h1 {
+      font-family: 'Lato', sans-serif;
+      font-style: italic;
+      font-weight: 800;
+      font-size: 52px;
+      letter-spacing: 15px;
+    }
+
+    h2 {
+      font-family: 'Lato', sans-serif;
+      font-style: italic;
+      font-weight: 800;
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-family: 'Lato', sans-serif;
+      font-size: 18px;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .description {
+      padding-left: 10px;
+      padding-right:10px;
+    }
+
+    /* Add spacing between visualisation rows */
+    .pure-g {
+      margin-bottom: 20px;
+    }
+
+    .vis-container {
+    width: 100%;
+    height: 475px;             /* Fixed height */
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;           /* <-- Forces content to stay inside */
+    position: relative;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <!-- Title -->
+    <div class="pure-g" style="border-bottom: 4px solid black; border-top: 4px solid black; padding: 10px 0;">
+      <div class="pure-u-1" style="text-align: center;">
+        <h1><span style="color: green;">Cycling</span> Data Visualisation</h1>
+      </div>
+    </div>
+
+    <!-- Row 1-->
+    <div class="pure-g" style="margin-top: 10px;">
+      <div class="pure-u-1-3" style="padding-top: 10px;">
+        <div id="vis3" class="vis-container"></div>
+      </div>
+      <div class="pure-u-1-3" style="padding-top: 10px;"">
+        <div id="vis1" class="vis-container "></div>
+      </div>
+      <div class="pure-u-1-3">
+        <div class="description">
+          <h2>Who Cycles?</h2>
+          <p>
+            Australia is known for its' sunny weather and amazing cities. Does our population take advantage of this 
+            and go out and cycle?
+          </p>
+          <p>
+            The two visulisations on the left aim to show how many people cycle in Australia, normalised as 
+            a percentage of the population.<br>
+            Both visualisations are categorically split, with the line graph split by gender and the bar chart 
+            split by state. Normalised values for the bar chart are by state populations.
+          </p>
+          <p>
+            From the graphs a downward trend in participation is apparent. It also shows 
+            that women tend to consistently cycle less and states such as SA are usually under the national 
+            average. This suggests a national level change is required to bring up rates for everyone. 
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2= -->
+    <div class="pure-g">
+      <div class="pure-u-1-3">
+        <div class="description">
+          <h2>Facilities for Cyclists</h2>
+          <p>
+            Let's take a closer look at Victoria. This state regularly performs close to the national average
+            in terms of participation rate.
+          </p>
+          <p>
+            If you are a cyclist you will be happy to see the amount of bike parking facilities in the capital 
+            city. On the otherhand they are much sparser in a regional city like Ballarat. This doesn't follow
+            participation rate trends shown in the Lollipop graph below.
+          </p>
+          <p>
+            The lollipop graph rather shows that regional victoria typically has higher participation rates. This
+            may suggest that avaliability of facilities, although convinent aren't as impactful as potential other 
+            factors on how much a population cycles.
+          </p>
+        </div>
+      </div>
+      <div class="pure-u-1-3">
+        <div id="vis2" class="vis-container"></div>
+      </div>
+      <div class="pure-u-1-3">
+        <div id="vis4" class="vis-container"></div>
+      </div>
+    </div>
+
+    <!-- Row 3-->
+    <div class="pure-g" style="margin-top: 10px;">
+      <div class="pure-u-1-3" style="padding-top: 10px;">
+        <div id="vis5" class="vis-container"></div>
+      </div>
+            <div class="pure-u-1-3" style="background-color:gainsboro">
+        <div class="description">
+          <h2>The Road Ahead...</h2>
+          <p>
+            As of 2019, Melbourne's blue bike scharing scheme was <a href="https://www.theage.com.au/national/victoria/goodbye-blue-bikes-melbourne-s-bike-share-scheme-canned-20190830-p52m9e.html">scrapped</a>
+            and eventually replaced by electric scooters. It is evident that among the newer generation there 
+            is increased adoption of these electric transport technologies.
+          </p>
+          <p>
+           As can be seen on the pie chart on the right, a majority of E-scooter users are emerging. Although 
+           push bikes are still the popular choice in the future, E-scooters are expected to overtake based
+           on a <a href="https://cdn.prod.website-files.com/6359ec4f04fcf66992b2006a/655428f817fb12568ebf5f2c_The_Australian_Cycling_and_e-scooter_Economy_in_2022_WeRide_and_EY_2023_Report_Final_web.pdf">report</a>
+           , which was also the source of the data for the piechart.
+          </p>
+          <p>
+           To prevent this and to lift up the already low usuage of bicycles in Australia, this visualisation calls upon
+           the government to introduce policy. This is so Australian citizens are able to enjoy the benefits of cycling!
+          </p>
+        </div>
+      </div>
+      <div class="pure-u-1-3" style="background-color:gainsboro">
+        <div id="vis6" class="vis-container "></div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="pure-g" style="border-top: 2px solid gray; margin-top: 20px;">
+      <div class="pure-u-1">
+        <p>
+          This page was created by Bhavesh Patil (33111677). The data sources and 5 design sheets
+          can be found in the
+          <a href='https://github.com/bpat0021/FIT3179'>project repository</a>.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Vega Embed -->
+  <script type="text/javascript">
+    const specVis1 = "./Cycling_Participation_Barchart.json";
+    const specVis2 = "./ballarat_bikeracks_map.json";
+    const specVis3 = "./Cycling_popularity_line.json";
+    const specVis4 = "./melb_bikeracks_map.json";
+    const specVis5 = "./regional_participation.json";
+    const specVis6 = "./piechart.json";
+
+    vegaEmbed('#vis1', specVis1, { actions: false });
+    vegaEmbed('#vis2', specVis2, { actions: false });
+    vegaEmbed('#vis3', specVis3, { actions: false });
+    vegaEmbed('#vis4', specVis4, { actions: false });
+    vegaEmbed('#vis5', specVis5, { actions: false });
+    vegaEmbed('#vis6', specVis6, { actions: false });
+  </script>
+
+</body>
+</html>
